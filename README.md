@@ -1,6 +1,8 @@
 # cursor-rules-to-claude
 
-Convert Cursor IDE rules (.mdc files) to Claude.md format for AI code assistance.
+> Let Claude Code use your Cursor rules.
+
+Convert Cursor IDE rules (.md/.mdc files) to CLAUDE.md format for AI code assistance. Perfect for using in GitHub Actions before running Claude Code.
 
 ## Why is this useful?
 
@@ -30,7 +32,7 @@ npx cursor-rules-to-claude
 
 This will:
 
-- Look for `.mdc` files in `.cursor/rules/` directory
+- Look for `.md` and `.mdc` files in `.cursor/rules/` directory
 - Generate/update `CLAUDE.md` file
 - Append rules to existing CLAUDE.md (won't overwrite)
 
@@ -77,8 +79,20 @@ Rule description and guidelines...
 
 ### Rule Processing
 
-- **alwaysApply: true**: Rule content is copied directly to CLAUDE.md
-- **alwaysApply: false**: Rule is listed as available for the `fetch_rules` tool
+The tool organizes rules into three categories:
+
+- **alwaysApply: true**: Rule content is fully included in CLAUDE.md under "Auto attached rules"
+- **alwaysApply: false** (with description): Rule is listed as a conditional rule with a link to the full content
+- **No frontmatter**: Rule content is included by default for compatibility
+
+## Output Format
+
+The generated CLAUDE.md file includes:
+
+- HTML comments marking the generated sections
+- Auto attached rules (fully included content)
+- Conditional rules (descriptions with links to full rules)
+- Rules without frontmatter (included by default)
 
 ## GitHub Action
 
@@ -112,7 +126,7 @@ bun run dev
 bun run build
 
 # Test
-node dist/index.js --help
+bun test
 ```
 
 ## License
