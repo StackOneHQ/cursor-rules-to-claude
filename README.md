@@ -8,7 +8,7 @@ Convert Cursor IDE rules (.md/.mdc files) to CLAUDE.md format. Perfect for using
 
 Many dev teams use Cursor IDE and build up a large collection of Cursor rules about their codebase. However, Claude Code uses CLAUDE.md files not Cursor rules natively.
 
-The killer usecase of this package is to use Cursor rules with Claude Code directly inside GitHub. If you haven't tried it yet, you're missing out. See the docs [here](https://docs.anthropic.com/en/docs/claude-code/github-actions)
+The killer use is Cursor rules with Claude Code directly inside GitHub. If you haven't tried it yet, you're missing out. See the docs [here](https://docs.anthropic.com/en/docs/claude-code/github-actions)
 
 ## Installation
 
