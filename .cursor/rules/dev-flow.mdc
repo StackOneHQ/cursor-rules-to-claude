@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Dev flow
+
+As an AI you will not be able to see the frontmatter using your read_file tools. 
+You will need to use your bash tool to head the file. 
