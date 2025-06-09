@@ -2,13 +2,13 @@
 
 > Let Claude Code use your Cursor rules.
 
-Convert Cursor IDE rules (.md/.mdc files) to CLAUDE.md format for AI code assistance. Perfect for using in GitHub Actions before running Claude Code.
+Convert Cursor IDE rules (.md/.mdc files) to CLAUDE.md format. Perfect for using in GitHub Actions before running Claude Code.
 
 ## Why is this useful?
 
 Many dev teams use Cursor IDE and build up a large collection of Cursor rules about their codebase. However, Claude Code uses CLAUDE.md files not Cursor rules natively.
 
-The killer usecase of this package is to enable using Cursor rules with Claude Code directly inside GitHub. This allows for next level vibe coding with adequate context.
+The killer usecase of this package is to use Cursor rules with Claude Code directly inside GitHub. If you haven't tried it yet, you're missing out. See the docs [here](https://docs.anthropic.com/en/docs/claude-code/github-actions)
 
 ## Installation
 
@@ -17,14 +17,6 @@ npm install -g cursor-rules-to-claude
 ```
 
 Or use directly with npx:
-
-```bash
-npx cursor-rules-to-claude
-```
-
-## Usage
-
-### Basic Usage
 
 ```bash
 npx cursor-rules-to-claude
@@ -105,12 +97,16 @@ jobs:
   update-claude:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./
+      - uses: actions/checkout@v4
+
+      - name: Cursor Rules to CLAUDE.md
+        uses: StackOneHQ/cursor-rules-to-claude@latest
+
+      - name: Run Claude Code
+        id: claude
+        uses: anthropics/claude-code-action@beta
         with:
-          rules-dir: ".cursor/rules"
-          output: "CLAUDE.md"
-          overwrite: "false"
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
 ## Development
