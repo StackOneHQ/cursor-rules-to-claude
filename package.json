@@ -1,6 +1,6 @@
 {
     "name": "cursor-rules-to-claude",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Convert Cursor rules to Claude.md format",
     "main": "dist/index.js",
     "bin": {
