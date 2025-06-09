@@ -1,0 +1,19 @@
+{
+    "name": "cursor-rules-to-claude",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@types/bun": "latest"
+    },
+    "scripts": {
+        "dev": "bun run index.ts",
+        "check": "biome check .",
+        "check:fix": "biome check --fix ."
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "trustedDependencies": ["@biomejs/biome"]
+}

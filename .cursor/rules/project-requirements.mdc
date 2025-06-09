@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# cursor-rules-to-claude
+
+This project takes cursor rules from .cursor/rules/*.mdc and builds a CLAUDE.md file. 
+
+## Why is this useful?
+
+Many dev teams use Cursor IDE and build up a large collection of Cursor rules about their codebase. However, Claude Code uses CLAUDE.md files not Cursor rules natively. 
+
+The killer usecase of this package is to enable using Cursor rules with Claude Code directly inside GitHub. This allows for next level vibe coding with adequate context.
+
+## How does it work?
+
+This is a cli program build with Bun (typescript) and using Commander. It will be build distributed as a npm package and a github action with `action.yml` in this codebase.
+
+`npx cursor-rules-to-claude`
+
+By default it generates a context file from the Cursor rules and appends them to the bottom of an already existing CLAUDE.md. If the CLAUDE.md file doesnt exist it creates it.
+
+Cursor rules have a header eg:
+
+```
+---
+description: Use Bun instead of Node.js, npm, pnpm, or vite.
+globs: *.ts, *.tsx, *.html, *.css, *.js, *.jsx, package.json
+alwaysApply: false
+---
+```
+
+If alwaysApply is true then we should copy the contents of the rule file to CLAUDE.md. Append to the bottom. 
+If alwaysApply is false then we should add a nicely formatted line directing the agent to open the rules file to know something about title:description. 
+
+### Customisability
+
+We should expect a few flags:
+
+--overwrite - overwrite CLAUDE.md with the new file generated from the Cursor rules rather than appending to the bottom. Default: false
+
