@@ -1,0 +1,42 @@
+name: "Cursor Rules to Claude"
+description: "Convert Cursor rules to Claude.md format for AI code assistance"
+author: "cursor-rules-to-claude"
+
+inputs:
+  rules-dir:
+    description: "Directory containing cursor rule files (.mdc)"
+    required: false
+    default: ".cursor/rules"
+  output:
+    description: "Output file path"
+    required: false
+    default: "CLAUDE.md"
+  overwrite:
+    description: "Overwrite existing CLAUDE.md instead of appending"
+    required: false
+    default: "false"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
+      working-directory: ${{ github.action_path }}
+
+    - name: Run cursor-rules-to-claude
+      shell: bash
+      run: |
+        bun run ${{ github.action_path }}/src/index.ts \
+          --rules-dir "${{ inputs.rules-dir }}" \
+          --output "${{ inputs.output }}" \
+          ${{ inputs.overwrite == 'true' && '--overwrite' || '' }}
+
+branding:
+  icon: "file-text"
+  color: "blue"
