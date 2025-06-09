@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
-import { readdir, readFile, writeFile, existsSync } from 'node:fs';
+import { existsSync, readFile, readdir, writeFile } from 'node:fs';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
+import { Command } from 'commander';
 import { DIVIDERS } from './constants.js';
 import { parseFrontmatter } from './frontmatter.js';
 
