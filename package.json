@@ -1,13 +1,18 @@
 {
     "name": "cursor-rules-to-claude",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Convert Cursor rules to Claude.md format",
     "main": "dist/index.js",
     "bin": {
         "cursor-rules-to-claude": "./dist/index.js"
     },
     "type": "module",
-    "files": ["dist", "README.md", "LICENSE", "package.json"],
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE",
+        "package.json"
+    ],
     "scripts": {
         "dev": "bun run src/index.ts",
         "build": "bun build src/index.ts --outdir=dist --target=node",
@@ -19,7 +24,14 @@
         "check": "biome check .",
         "check:fix": "biome check --fix ."
     },
-    "keywords": ["cursor", "claude", "cli", "rules", "ai", "github-action"],
+    "keywords": [
+        "cursor",
+        "claude",
+        "cli",
+        "rules",
+        "ai",
+        "github-action"
+    ],
     "author": "",
     "license": "MIT",
     "repository": {
@@ -40,5 +52,7 @@
     "peerDependencies": {
         "typescript": "^5"
     },
-    "trustedDependencies": ["@biomejs/biome"]
+    "trustedDependencies": [
+        "@biomejs/biome"
+    ]
 }
