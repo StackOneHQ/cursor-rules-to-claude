@@ -73,7 +73,7 @@ describe('cursor-rules-to-claude CLI', () => {
     const content = readFileSync(outputFile, 'utf-8');
     expect(content).toContain('# Agent Requested');
     expect(content).toContain('>Conditional test rule');
-    expect(content).toContain('Read the full rule [here]');
+    expect(content).toContain('Read the full rule @');
     expect(content).not.toContain('Conditional point 1');
   });
 
@@ -240,6 +240,6 @@ alwaysApply: false
     const content = readFileSync(outputFile, 'utf-8');
     expect(content).toContain('# No Globs');
     expect(content).toContain('>"Test rule"');
-    expect(content).toContain('Read the full rule [here]');
+    expect(content).toContain('Read the full rule @');
   });
 });
