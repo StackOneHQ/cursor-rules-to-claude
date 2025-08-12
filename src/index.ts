@@ -121,7 +121,7 @@ ${DIVIDERS.GENERATED_BY}
         rulesContent += `>${rule.description}\n`;
       }
 
-      rulesContent += `This rule can be found [here](${rulesDir}/${rule.filename}.md)\n\n`;
+      rulesContent += `This rule can be found @${rulesDir}/${rule.filename}.md\n\n`;
       rulesContent += `${rule.content}\n\n`;
     }
   }
@@ -145,7 +145,7 @@ ${DIVIDERS.GENERATED_BY}
         rulesContent += `This refers to: ${rule.globs}\n\n`;
       }
 
-      rulesContent += `Read the full rule [here](${rulesDir}/${rule.filename}.md)\n\n`;
+      rulesContent += `Read the full rule @${rulesDir}/${rule.filename}.md\n\n`;
     }
   }
 
